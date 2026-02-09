@@ -5,7 +5,7 @@ This WebGIS presents tree-level analysis of a 7.3 ha palm plantation in Buenos A
 - Agisoft Metashape
 - Label Studio
 ## Workflow
-UAV Dataset > Metashape > Orthomosaic > YOLO detection > Tree analysis
+UAV Dataset > Metashape > Orthomosaic > Label Studio > ONNX tree model > QGIS > Tree analysis
 
 ### Source Dataset
 https://eaglenxt.com/data-set/palm-tree-detection-using-rededge-p
