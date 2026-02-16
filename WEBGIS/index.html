@@ -37,9 +37,9 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/Contour_3.js"></script>
-        <script src="data/VacantPlot_4.js"></script>
-        <script src="data/CropVigor_5.js"></script>
+        <script src="data/Contour_4.js"></script>
+        <script src="data/VacantPlot_5.js"></script>
+        <script src="data/CropVigor_6.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -59,7 +59,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-33.99659141788231,-59.29889551176114],[-33.99470823045733,-59.29650220077354]]);
+        }).fitBounds([[-33.99687133976027,-59.30036267881416],[-33.993104964910295,-59.29557605683896]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -171,10 +171,22 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_Orthomosaic_0');
-        map.getPane('pane_Orthomosaic_0').style.zIndex = 400;
-        var layer_Orthomosaic_0 = L.tileLayer('https://hicsuntdracone.github.io/BuenosAires//XYZTiles/BuenosAires_Ortho/{z}/{x}/{y}.png', {
-            pane: 'pane_Orthomosaic_0',
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_GoogleSatellite_0;
+        map.createPane('pane_Orthomosaic_1');
+        map.getPane('pane_Orthomosaic_1').style.zIndex = 401;
+        var layer_Orthomosaic_1 = L.tileLayer('https://hicsuntdracone.github.io/BuenosAires//XYZTiles/BuenosAires_Ortho/{z}/{x}/{y}.png', {
+            pane: 'pane_Orthomosaic_1',
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
@@ -182,12 +194,12 @@
             minNativeZoom: 12,
             maxNativeZoom: 21
         });
-        layer_Orthomosaic_0;
-        map.addLayer(layer_Orthomosaic_0);
-        map.createPane('pane_NDVI_1');
-        map.getPane('pane_NDVI_1').style.zIndex = 401;
-        var layer_NDVI_1 = L.tileLayer('https://hicsuntdracone.github.io/BuenosAires/XYZTiles/BuenosAires_NDVI/{z}/{x}/{y}.png', {
-            pane: 'pane_NDVI_1',
+        layer_Orthomosaic_1;
+        map.addLayer(layer_Orthomosaic_1);
+        map.createPane('pane_NDVI_2');
+        map.getPane('pane_NDVI_2').style.zIndex = 402;
+        var layer_NDVI_2 = L.tileLayer('https://hicsuntdracone.github.io/BuenosAires/XYZTiles/BuenosAires_NDVI/{z}/{x}/{y}.png', {
+            pane: 'pane_NDVI_2',
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
@@ -195,11 +207,11 @@
             minNativeZoom: 12,
             maxNativeZoom: 21
         });
-        layer_NDVI_1;
-        map.createPane('pane_NDRE_2');
-        map.getPane('pane_NDRE_2').style.zIndex = 402;
-        var layer_NDRE_2 = L.tileLayer('https://hicsuntdracone.github.io/BuenosAires/XYZTiles/BuenosAires_NDRE/{z}/{x}/{y}.png', {
-            pane: 'pane_NDRE_2',
+        layer_NDVI_2;
+        map.createPane('pane_NDRE_3');
+        map.getPane('pane_NDRE_3').style.zIndex = 403;
+        var layer_NDRE_3 = L.tileLayer('https://hicsuntdracone.github.io/BuenosAires/XYZTiles/BuenosAires_NDRE/{z}/{x}/{y}.png', {
+            pane: 'pane_NDRE_3',
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
@@ -207,8 +219,8 @@
             minNativeZoom: 12,
             maxNativeZoom: 21
         });
-        layer_NDRE_2;
-        function pop_Contour_3(feature, layer) {
+        layer_NDRE_3;
+        function pop_Contour_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -239,9 +251,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Contour_3_0() {
+        function style_Contour_4_0() {
             return {
-                pane: 'pane_Contour_3',
+                pane: 'pane_Contour_4',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -252,21 +264,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Contour_3');
-        map.getPane('pane_Contour_3').style.zIndex = 403;
-        map.getPane('pane_Contour_3').style['mix-blend-mode'] = 'normal';
-        var layer_Contour_3 = new L.geoJson(json_Contour_3, {
+        map.createPane('pane_Contour_4');
+        map.getPane('pane_Contour_4').style.zIndex = 404;
+        map.getPane('pane_Contour_4').style['mix-blend-mode'] = 'normal';
+        var layer_Contour_4 = new L.geoJson(json_Contour_4, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Contour_3',
-            layerName: 'layer_Contour_3',
-            pane: 'pane_Contour_3',
-            onEachFeature: pop_Contour_3,
-            style: style_Contour_3_0,
+            dataVar: 'json_Contour_4',
+            layerName: 'layer_Contour_4',
+            pane: 'pane_Contour_4',
+            onEachFeature: pop_Contour_4,
+            style: style_Contour_4_0,
         });
-        bounds_group.addLayer(layer_Contour_3);
-        map.addLayer(layer_Contour_3);
-        function pop_VacantPlot_4(feature, layer) {
+        bounds_group.addLayer(layer_Contour_4);
+        map.addLayer(layer_Contour_4);
+        function pop_VacantPlot_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -293,9 +305,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_VacantPlot_4_0() {
+        function style_VacantPlot_5_0() {
             return {
-                pane: 'pane_VacantPlot_4',
+                pane: 'pane_VacantPlot_5',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -309,27 +321,27 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_VacantPlot_4');
-        map.getPane('pane_VacantPlot_4').style.zIndex = 404;
-        map.getPane('pane_VacantPlot_4').style['mix-blend-mode'] = 'normal';
-        var layer_VacantPlot_4 = new L.geoJson(json_VacantPlot_4, {
+        map.createPane('pane_VacantPlot_5');
+        map.getPane('pane_VacantPlot_5').style.zIndex = 405;
+        map.getPane('pane_VacantPlot_5').style['mix-blend-mode'] = 'normal';
+        var layer_VacantPlot_5 = new L.geoJson(json_VacantPlot_5, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_VacantPlot_4',
-            layerName: 'layer_VacantPlot_4',
-            pane: 'pane_VacantPlot_4',
-            onEachFeature: pop_VacantPlot_4,
+            dataVar: 'json_VacantPlot_5',
+            layerName: 'layer_VacantPlot_5',
+            pane: 'pane_VacantPlot_5',
+            onEachFeature: pop_VacantPlot_5,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_VacantPlot_4_0(feature));
+                return L.circleMarker(latlng, style_VacantPlot_5_0(feature));
             },
         });
-        bounds_group.addLayer(layer_VacantPlot_4);
-        map.addLayer(layer_VacantPlot_4);
-        function pop_CropVigor_5(feature, layer) {
+        bounds_group.addLayer(layer_VacantPlot_5);
+        map.addLayer(layer_VacantPlot_5);
+        function pop_CropVigor_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -372,10 +384,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CropVigor_5_0(feature) {
+        function style_CropVigor_6_0(feature) {
             if (feature.properties['NDVI_mean'] >= 0.300000 && feature.properties['NDVI_mean'] <= 0.450000 ) {
                 return {
-                pane: 'pane_CropVigor_5',
+                pane: 'pane_CropVigor_6',
                 radius: 5.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -391,7 +403,7 @@
             }
             if (feature.properties['NDVI_mean'] >= 0.450000 && feature.properties['NDVI_mean'] <= 0.600000 ) {
                 return {
-                pane: 'pane_CropVigor_5',
+                pane: 'pane_CropVigor_6',
                 radius: 5.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -407,7 +419,7 @@
             }
             if (feature.properties['NDVI_mean'] >= 0.600000 && feature.properties['NDVI_mean'] <= 0.750000 ) {
                 return {
-                pane: 'pane_CropVigor_5',
+                pane: 'pane_CropVigor_6',
                 radius: 5.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -423,7 +435,7 @@
             }
             if (feature.properties['NDVI_mean'] >= 0.750000 && feature.properties['NDVI_mean'] <= 0.900000 ) {
                 return {
-                pane: 'pane_CropVigor_5',
+                pane: 'pane_CropVigor_6',
                 radius: 5.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -438,35 +450,36 @@
             }
             }
         }
-        map.createPane('pane_CropVigor_5');
-        map.getPane('pane_CropVigor_5').style.zIndex = 405;
-        map.getPane('pane_CropVigor_5').style['mix-blend-mode'] = 'normal';
-        var layer_CropVigor_5 = new L.geoJson(json_CropVigor_5, {
+        map.createPane('pane_CropVigor_6');
+        map.getPane('pane_CropVigor_6').style.zIndex = 406;
+        map.getPane('pane_CropVigor_6').style['mix-blend-mode'] = 'normal';
+        var layer_CropVigor_6 = new L.geoJson(json_CropVigor_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CropVigor_5',
-            layerName: 'layer_CropVigor_5',
-            pane: 'pane_CropVigor_5',
-            onEachFeature: pop_CropVigor_5,
+            dataVar: 'json_CropVigor_6',
+            layerName: 'layer_CropVigor_6',
+            pane: 'pane_CropVigor_6',
+            onEachFeature: pop_CropVigor_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_CropVigor_5_0(feature));
+                return L.circleMarker(latlng, style_CropVigor_6_0(feature));
             },
         });
-        bounds_group.addLayer(layer_CropVigor_5);
-        map.addLayer(layer_CropVigor_5);
+        bounds_group.addLayer(layer_CropVigor_6);
+        map.addLayer(layer_CropVigor_6);
         var overlaysTree = [
         {label: '<b>Vectors</b>',  selectAllCheckbox: true, children: [
-            {label: 'Crop Vigor<br /><table><tr><td style="text-align: center;"><img src="legend/CropVigor_5_Poor0.png" /></td><td>Poor</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_5_Fair1.png" /></td><td>Fair</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_5_Healthy2.png" /></td><td>Healthy</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_5_Thriving3.png" /></td><td>Thriving</td></tr></table>', layer: layer_CropVigor_5},
-            {label: '<img src="legend/VacantPlot_4.png" /> Vacant Plot', layer: layer_VacantPlot_4},
-            {label: '<img src="legend/Contour_3.png" /> Contour', layer: layer_Contour_3},]},
+            {label: 'Crop Vigor<br /><table><tr><td style="text-align: center;"><img src="legend/CropVigor_6_Poor0.png" /></td><td>Poor</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_6_Fair1.png" /></td><td>Fair</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_6_Healthy2.png" /></td><td>Healthy</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_6_Thriving3.png" /></td><td>Thriving</td></tr></table>', layer: layer_CropVigor_6},
+            {label: '<img src="legend/VacantPlot_5.png" /> Vacant Plot', layer: layer_VacantPlot_5},
+            {label: '<img src="legend/Contour_4.png" /> Contour', layer: layer_Contour_4},]},
         {label: '<b>Rasters</b>',  selectAllCheckbox: true, children: [
-            {label: "NDRE", layer: layer_NDRE_2},
-            {label: "NDVI", layer: layer_NDVI_1},
-            {label: "Orthomosaic", layer: layer_Orthomosaic_0, radioGroup: 'bm' },]},]
+            {label: "NDRE", layer: layer_NDRE_3},
+            {label: "NDVI", layer: layer_NDVI_2},
+            {label: "Orthomosaic", layer: layer_Orthomosaic_1, radioGroup: 'bm' },
+            {label: "Google Satellite", layer: layer_GoogleSatellite_0},]},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -529,27 +542,27 @@
         });       
         setBounds();
         var i = 0;
-        layer_Contour_3.eachLayer(function(layer) {
+        layer_Contour_4.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((exp_label_Contour_3_eval_expression(context) !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Arial\', sans-serif;">' + exp_label_Contour_3_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Contour_3'});
+            layer.bindTooltip((exp_label_Contour_4_eval_expression(context) !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Arial\', sans-serif;">' + exp_label_Contour_4_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Contour_4'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Contour_3]);
+        resetLabels([layer_Contour_4]);
         map.on("zoomend", function(){
-            resetLabels([layer_Contour_3]);
+            resetLabels([layer_Contour_4]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Contour_3]);
+            resetLabels([layer_Contour_4]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Contour_3]);
+            resetLabels([layer_Contour_4]);
         });
         </script>        
     </body>
