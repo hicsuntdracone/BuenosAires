@@ -38,7 +38,7 @@
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="data/Contour_3.js"></script>
-        <script src="data/Trees_4.js"></script>
+        <script src="data/CropVigor_4.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -58,7 +58,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-33.997447933532584,-59.30038590861282],[-33.99337903319504,-59.295671228150105]]);
+        }).fitBounds([[-33.99901013376167,-59.302256411919345],[-33.99159059906167,-59.29282705099392]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -265,7 +265,7 @@
         });
         bounds_group.addLayer(layer_Contour_3);
         map.addLayer(layer_Contour_3);
-        function pop_Trees_4(feature, layer) {
+        function pop_CropVigor_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -308,10 +308,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Trees_4_0(feature) {
+        function style_CropVigor_4_0(feature) {
             if (feature.properties['NDVI_mean'] >= 0.300000 && feature.properties['NDVI_mean'] <= 0.450000 ) {
                 return {
-                pane: 'pane_Trees_4',
+                pane: 'pane_CropVigor_4',
                 radius: 5.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -327,7 +327,7 @@
             }
             if (feature.properties['NDVI_mean'] >= 0.450000 && feature.properties['NDVI_mean'] <= 0.600000 ) {
                 return {
-                pane: 'pane_Trees_4',
+                pane: 'pane_CropVigor_4',
                 radius: 5.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -343,7 +343,7 @@
             }
             if (feature.properties['NDVI_mean'] >= 0.600000 && feature.properties['NDVI_mean'] <= 0.750000 ) {
                 return {
-                pane: 'pane_Trees_4',
+                pane: 'pane_CropVigor_4',
                 radius: 5.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -359,7 +359,7 @@
             }
             if (feature.properties['NDVI_mean'] >= 0.750000 && feature.properties['NDVI_mean'] <= 0.900000 ) {
                 return {
-                pane: 'pane_Trees_4',
+                pane: 'pane_CropVigor_4',
                 radius: 5.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -374,29 +374,29 @@
             }
             }
         }
-        map.createPane('pane_Trees_4');
-        map.getPane('pane_Trees_4').style.zIndex = 404;
-        map.getPane('pane_Trees_4').style['mix-blend-mode'] = 'normal';
-        var layer_Trees_4 = new L.geoJson(json_Trees_4, {
+        map.createPane('pane_CropVigor_4');
+        map.getPane('pane_CropVigor_4').style.zIndex = 404;
+        map.getPane('pane_CropVigor_4').style['mix-blend-mode'] = 'normal';
+        var layer_CropVigor_4 = new L.geoJson(json_CropVigor_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Trees_4',
-            layerName: 'layer_Trees_4',
-            pane: 'pane_Trees_4',
-            onEachFeature: pop_Trees_4,
+            dataVar: 'json_CropVigor_4',
+            layerName: 'layer_CropVigor_4',
+            pane: 'pane_CropVigor_4',
+            onEachFeature: pop_CropVigor_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Trees_4_0(feature));
+                return L.circleMarker(latlng, style_CropVigor_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Trees_4);
-        map.addLayer(layer_Trees_4);
+        bounds_group.addLayer(layer_CropVigor_4);
+        map.addLayer(layer_CropVigor_4);
         var overlaysTree = [
         {label: '<b>Vectors</b>',  selectAllCheckbox: true, children: [
-            {label: 'Trees<br /><table><tr><td style="text-align: center;"><img src="legend/Trees_4_030450.png" /></td><td>0.3 - 0.45</td></tr><tr><td style="text-align: center;"><img src="legend/Trees_4_045061.png" /></td><td>0.45 - 0.6</td></tr><tr><td style="text-align: center;"><img src="legend/Trees_4_060752.png" /></td><td>0.6 - 0.75</td></tr><tr><td style="text-align: center;"><img src="legend/Trees_4_075093.png" /></td><td>0.75 - 0.9</td></tr></table>', layer: layer_Trees_4},
+            {label: 'Crop Vigor<br /><table><tr><td style="text-align: center;"><img src="legend/CropVigor_4_Poor0.png" /></td><td>Poor</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_4_Fair1.png" /></td><td>Fair</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_4_Healthy2.png" /></td><td>Healthy</td></tr><tr><td style="text-align: center;"><img src="legend/CropVigor_4_Thriving3.png" /></td><td>Thriving</td></tr></table>', layer: layer_CropVigor_4},
             {label: '<img src="legend/Contour_3.png" /> Contour', layer: layer_Contour_3},]},
         {label: '<b>Rasters</b>',  selectAllCheckbox: true, children: [
             {label: "NDRE", layer: layer_NDRE_2},
